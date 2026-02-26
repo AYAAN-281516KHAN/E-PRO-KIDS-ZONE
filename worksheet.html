@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KidsZone PRO - Blue Theme with Brushes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+
+body{
+  background-color: #001aff;
+}
+
+  .navbar .navbar-nav .nav-link:hover {
+    background-color: #ff0303;
+    color: #001aff;
+  }
+
+  .navbar .navbar-nav .nav-link {
+    padding: 0.6em;
+    font-size: 1.2em;
+    transition: all 0.5s;
+  }
+
+  .navbar .navbar-brand {
+    padding: 0 0.6em;
+    font-size: 1.5em;
+  }
+
+  @media only screen and (min-width: 992px) {
+    .navbar {
+      padding: 0;
+    }
+
+    .navbar .navbar-nav .nav-link {
+      padding: 1em 0.7em;
+    }
+
+    .navbar .navbar-brand {
+      padding: 0 0.8em;
+    }
+
+    #login {
+      padding: 1em 0.7em;
+    }
+
+
+
+  }
+
+  #login {
+    color: #ff0381;
+
+  }
+
+  #login:hover {
+    color: #ffd500;
+    background-color: #ff0381;
+    padding: 0.6em;
+    font-size: 1.2em;
+    transition: all 0.5s;
+  }
+
+  .c-item {
+    height: 480px;
+  }
+
+  .c-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+  }
+  ::-webkit-scrollbar {
+    width: 0.625rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgb(173, 38, 38);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(228, 76, 76);
+  }
+  #home {
+  
+    height: 50px;
+    width: 50px;
+  }
+
+  #Alphabets {
+    height: 50px;
+    width: 50px;
+  }
+
+  #Numbers {
+    height: 50px;
+    width: 50px;
+  }
+
+
+  #section1 {
+    height: 300px;
+    width: 300px;
+    border: none;
+    border-radius: 5%;
+
+  }
+
+  footer a {
+    outline: none;
+    text-decoration-line: none;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    background-color: #9e0404;
+  }
+
+  .container .contents-wraper {
+    width: auto;
+    min-height: inherit;
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  .contents-wraper .header h1 {
+    position: relative;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .contents-wraper .header h1::before {
+    content: '';
+    width: 200px;
+    height: 2px;
+    background-color: #ff1414;
+    border-radius: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+  }
+
+
+  .contents-wraper .indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .contents-wraper .indicators .dot {
+    width: 15px;
+    height: 15px;
+    margin: 0px 3px;
+    border: 3px solid #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+  }
+
+  .contents-wraper .indicators .active {
+    background-color: #006994;
+  }
+
+  @keyframes next1 {
+    from {
+      left: 0%;
+    }
+
+    to {
+      left: -100%;
+    }
+  }
+
+  @keyframes next2 {
+    from {
+      left: 100%;
+    }
+
+    to {
+      left: 0%;
+    }
+  }
+
+  @keyframes prev1 {
+    from {
+      left: 0%;
+    }
+
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes prev2 {
+    from {
+      left: -100%;
+    }
+
+    to {
+      left: 0%;
+    }
+  }
+
+  @media(max-width: 550px) {
+    .container .contents-wraper {
+      width: 90%;
+    }
+
+    .contents-wraper .header h1 {
+      font-size: 32px;
+    }
+
+  }
+  .videos {
+    background-color: #FFFFFF;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    height: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .videos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .card-img-top {
+    height: auto;
+    flex-grow: 1;
+  }
+
+  .flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateX(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateX(180deg);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .carousel-caption .btn {
+    margin-top: auto;
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-caption p {
+      font-size: 5px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+  }
+
+
+
+  .Game-543{
+    background-color: black;
+  }
+
+
+
+    h1{
+      color:#ffffff;
+      margin-top:10px;
+    }
+
+    .game-info{
+      font-size:20px;
+      margin:10px;
+      color: yellow;
+    }
+
+    #gameArea{
+      position:relative;
+      width:100%;
+      height:75vh;
+      overflow:hidden;
+    }
+
+    .balloon{
+      position:absolute;
+      width:80px;
+      height:100px;
+      border-radius:50%;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      font-weight:bold;
+      color:white;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp{
+      from{ transform: translateY(0); }
+      to{ transform: translateY(-120vh); }
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      border-radius:10px;
+      background:#ff4081;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#e91e63;
+    }
+
+    
+    body {
+      font-family: Comic Sans MS, cursive;
+      margin: 0;
+      background: #001aff;
+      text-align: center;
+    }
+
+    header {
+      background: #ffee00;
+      color: white;
+      padding: 15px 20px;
+      font-size: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+      color: #000;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: auto;
+    }
+
+    .search-box {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    #searchBtn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #000;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    #searchBtn:hover {
+      background: #222;
+    }
+
+    .container {
+      background: #e6f0ff;
+      margin: 20px auto;
+      padding: 20px;
+      width: 95%;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 128, 0.3);
+    }
+
+    h2 {
+      color: #3366ff;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      background: #ff0000;
+      color: rgb(251, 255, 0);
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #fbff00;
+      color: red;
+    }
+
+    .cards,
+    .game-board {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .card {
+      width: 100px;
+      padding: 10px;
+      background: #cce0ff;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 128, 0.3);
+      cursor: pointer;
+    }
+
+    .letter {
+      font-size: 30px;
+      font-weight: bold;
+      color: yellow;
+      animation: bounce 2s infinite;
+      background-color: red;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    canvas {
+      border: 3px dashed #ff0000;
+      border-radius: 10px;
+      background: #e6f0ff;
+      margin-top: 10px;
+    }
+
+    .game-card {
+      width: 70px;
+      height: 70px;
+      background: #1eff00;
+      color: rgb(255, 0, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .stars {
+      font-size: 22px;
+      color: gold;
+    }
+
+    .dashboard {
+      background: #ffd900;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      color: red;
+    }
+
+    h2{
+      color: red;
+    }
+
+    select {
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+
+    #score{
+    color: white;
+    }
+
+
+    #time{
+      color: white;
+    }
+
+
+    #alphabetTitle{
+      color:#000;
+    }
+
+
+    #traceLetter{
+      color: yellow;
+      background-color: red;
+    }
+
+#alphabetCards{
+  background-color: yellow;
+}
+
+#traceTitle{
+  color: red;
+}
+
+
+
+    .color-brush-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .brush-button {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 2px solid #0033cc;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      background: #ffffff;
+    }
+
+    .brush-button.selected {
+      border: 3px solid #0033cc;
+      background: #3366ff;
+      color: white;
+    }
+
+    @media print {
+      button,
+      header {
+        display: none;
+      }
+      body {
+        background: white;
+      }
+    }
+  </style>
+</head>
+<body>
+
+     <nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
+        <a class='navbar-brand' href='/'>
+            <img src="/kidszone (1).png" class="rounded-pill" alt="Kids Zone" width="80" height="80">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current='page' class='nav-link active' href='/index.html'><img src="/home.png" class="rounded-pill"
+                            alt="Home" id="home">Home</a>
+                </li>
+
+                
+                <li class="nav-item">
+                    <a class='nav-link' href='/A-B-C.HTML'><img src="/abc.png" class="rounded-pill" alt=""
+                            id="Alphabets">ABC's</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/123.html'><img src="/123.png" class="rounded-pill" alt="" id="Numbers">123</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/arthmatic.html'><img src="arithmethic.png" class="rounded-pill" alt=""
+                            id="Numbers">Arithmatic</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class='nav-link' href='/kid zone shop.html'><img src="/shop.png" class="rounded-pill" alt=""
+                            id="Numbers">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/worksheet.html'><img src="/worksheet.png" class="rounded-pill" alt="Work Sheet"
+                            id="Numbers">Worksheets</a>
+                </li>
+
+                                <li class="nav-item">
+                    <a class='nav-link' href='Game.html'><img src="/Games logo copy.png" class="rounded-pill" alt="Games"
+                            id="Numbers">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ABOUT US.HTML"><img src="/about us.png" class="rounded-pill" alt="About Us"
+                            id="Numbers">About Us</a>
+                </li>
+            </ul>
+            <a class='nav-link' href='/SIN UP.HTML' id='login'><i class="fa-solid fa-users"></i>Sign Up/ Log
+                In</a>
+        </div>
+    </div>
+</nav>
+  <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="carageuall 1.jpg" class="d-block w-100 c-img" alt="Slide 1">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Learn Arithmatic</h1>
+          <p class="mt-5 fs-3 text-uppercase">🌟Explore the magic of numbers! Master ➕ and ➖ with fun math games at Kids
+            Zone!</p>
+
+          <a class='btn btn-warning' href='/arthmatic.html'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="carageuall 2.jpg" class="d-block w-100 c-img" alt="Slide 2">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Learn Alphabets</h1>
+          <p class="mt-5 fs-3 text-uppercase">🥳Explore letters with us! Learn A to Z through delighting alphabet games
+            at Kids Zone!</p>
+          <a class='btn btn-warning' href='/A-B-C.HTML'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="carageuall 3.png" class="d-block w-100 c-img" alt="Slide 3">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Tracing Activities</h1>
+
+          <p class="mt-5 fs-3 text-uppercase">📚Explore our engaging alphabet worksheets for fun learning at Kids Zone!
+          </p>
+          <a class='btn btn-warning' href='/worksheet.html'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="assests/portfolio-4.jpg" class="d-block w-100 c-img" alt="Slide 4">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Explore Prayers & Rhymes</h1>
+          <p class="mt-5 fs-3 text-uppercase">📺Join us for engaging prayers and delightful nursery rhymes at KidsZone!
+          </p>
+          <a class='btn btn-warning mb-5' href='/p a r .html'>Learn Now</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container-fluid text-center  mb-3 justify-content-center py-5 ">
+    <br>
+
+<div class="Game-543">
+    <h1>🎈 Alphabet Balloon Pop 🎈</h1>
+
+<div class="game-info">
+  Score: <span id="score">0</span> |
+  Time Left: <span id="time">60</span>s
+</div>
+
+<button onclick="startGame()">Start Game</button>
+
+<div id="gameArea"></div>
+</div>
+
+  <header>
+    <div class="header-title">Worksheet</div>
+    <div class="search-container">
+      <input type="text" class="search-box" id="headerSearch" placeholder="Search Here">
+      <button id="searchBtn">Go</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Choose Language</h2>
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="ur">اردو</option>
+      <option value="tr">Türkçe</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+    </select>
+
+    <h2 id="alphabetTitle">Alphabet Cards</h2>
+    <div class="cards" id="alphabetCards"></div>
+
+    <h2 id="traceTitle">Tracing Practice</h2>
+    <h1 id="traceLetter">A</h1>
+
+    <div class="color-brush-container">
+      🎨 Color: <input type="color" id="colorPicker" value="#3366ff">
+      🖌 Brush Size:
+      <div class="brush-button selected" data-size="3">S</div>
+      <div class="brush-button" data-size="6">M</div>
+      <div class="brush-button" data-size="10">L</div>
+      <div class="brush-button" data-size="15">XL</div>
+    </div>
+
+    <canvas id="traceCanvas" width="400" height="200"></canvas><br>
+    <button onclick="clearCanvas()">Clear</button>
+
+    <h2 id="gameTitle">Matching Game</h2>
+    <div class="game-board" id="gameBoard"></div>
+
+    <h2>🏆 Rewards</h2>
+    <div class="stars" id="starDisplay">⭐⭐⭐⭐⭐</div>
+
+    <h2>Parent Dashboard</h2>
+    <div class="dashboard">
+      Score: <span id="dashboardScore">0</span><br>
+      Stars Earned: <span id="dashboardStars">0</span><br>
+      Last Letter Practiced: <span id="dashboardLetter">A</span>
+    </div>
+
+    <h2>🖨️ Print Worksheet</h2>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+
+   <footer class="text-center text-white bg-info">
+      <!-- Grid container -->
+      <div class="container-fluid">
+          <!-- Section: Links -->
+          <section class="mt-5">
+              <!-- Grid row-->
+              <div class="row text-center d-flex justify-content-center pt-5">
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/index.html' style='color: #ff0000;'>Home</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/arithmatic' style='color: #ff0000;'>Arithmetic</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/prayersandrhymes' style='color: #ff0000;'>Prayers
+                              and Nursery
+                              Rhymes</a>
+                      </h6>
+                  </div>
+                   <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/shop' style='color: #ff0000;'>Shop</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/worksheets' style='color: #ff0000;'>Worksheets</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a href="About Us.html" class="text-decoration-none" style="color: #ff0000;">About Us</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a href="Privacy Policy.html" class="text-decoration-none" style="color: #ff0000;">Privacy
+                              Policy</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+              </div>
+              <!-- Grid row-->
+          </section>
+          <!-- Section: Links -->
+
+          <hr class="my-5" style="border-color: #000000;" />
+
+          <!-- Section: Text -->
+          <section class="mb-5">
+              <div class="row d-flex justify-content-center">
+                  <div class="col-lg-8">
+                      <p>
+                          Thank you for visiting Kids Zone, where learning and fun go hand in hand! Explore our
+                          engaging activities,
+                          from alphabet learning to arithmetic challenges and interactive worksheets. Join us in
+                          nurturing young
+                          minds and fostering a love for learning. Stay updated with our latest events and programs!
+                      </p>
+                  </div>
+              </div>
+          </section>
+          <!-- Section: Text -->
+
+          <!-- Section: Social -->
+          <!-- Section: Social -->
+          <!-- Section: Social -->
+          <section class="text-center mb-5">
+              <a href="https://www.facebook.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-facebook-f" style="color: #ff5c77; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.twitter.com/yourpage" class="text-primary me-4">
+                  <i class="fab fa-twitter" style="color: #00b8d9; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.google.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-google" style="color: #c62828; font-size: 2rem;"></i>
+                  <!-- Darkened the Google color -->
+              </a>
+              <a href="https://www.instagram.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-instagram" style="color: #ff5c77; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/yourpage" class="text-info me-4">
+                  <i class="fab fa-linkedin" style="color: #00b8d9; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.github.com/yourpage" class="text-dark me-4">
+                  <i class="fab fa-github" style="color: #24292e; font-size: 2rem;"></i>
+                  <!-- Darkened the GitHub color -->
+              </a>
+          </section>
+
+          <!-- Section: Social -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(255, 34, 0, 0.465);">
+          © 2024 Copyright:
+          <a class="text-white" href="https://KidsZone.com/">KidsZone.com</a>
+      </div>
+      <!-- Copyright -->
+  </footer>
+
+  <!-- Footer -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="videoModalLabel">YouTube Video</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <iframe id="modalVideo" width="100%" height="315" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script>
+
+
+let score = 0;
+let timeLeft = 60;   // 🔥 Changed to 60 seconds
+let gameInterval;
+let timerInterval;
+let gameRunning = false;
+
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+function randomColor(){
+  const colors = ["#ff4d4d","#ffcc00","#33cc33","#3399ff","#cc66ff","#ff66b2"];
+  return colors[Math.floor(Math.random()*colors.length)];
+}
+
+function createBalloon(){
+  if(!gameRunning) return;
+
+  const balloon = document.createElement("div");
+  balloon.classList.add("balloon");
+
+  const randomLetter = alphabet[Math.floor(Math.random()*alphabet.length)];
+  balloon.innerText = randomLetter;
+  balloon.dataset.letter = randomLetter;
+
+  balloon.style.background = randomColor();
+  balloon.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  balloon.style.bottom = "-120px";
+
+  const duration = Math.random() * 3 + 3;
+  balloon.style.animationDuration = duration + "s";
+
+  balloon.onclick = function(){
+    popBalloon(balloon);
+  };
+
+  document.getElementById("gameArea").appendChild(balloon);
+
+  setTimeout(()=>{
+    balloon.remove();
+  }, duration * 1000);
+}
+
+function popBalloon(balloon){
+  if(!balloon) return;
+  score++;
+  document.getElementById("score").innerText = score;
+  balloon.remove();
+}
+
+document.addEventListener("keydown", function(e){
+  if(!gameRunning) return;
+
+  const pressedKey = e.key.toUpperCase();
+
+  const balloons = document.querySelectorAll(".balloon");
+  balloons.forEach(balloon=>{
+    if(balloon.dataset.letter === pressedKey){
+      popBalloon(balloon);
+    }
+  });
+});
+
+function startGame(){
+  if(gameRunning) return;
+
+  score = 0;
+  timeLeft = 60;   // 🔥 Reset to 60 seconds
+  gameRunning = true;
+
+  document.getElementById("score").innerText = score;
+  document.getElementById("time").innerText = timeLeft;
+
+  document.getElementById("gameArea").innerHTML = "";
+
+  gameInterval = setInterval(createBalloon, 800);
+
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    document.getElementById("time").innerText = timeLeft;
+
+    if(timeLeft <= 0){
+      endGame();
+    }
+  },1000);
+}
+
+function endGame(){
+  gameRunning = false;
+  clearInterval(gameInterval);
+  clearInterval(timerInterval);
+  alert("Game Over! Your Score: " + score);
+}
+    $(document).ready(function(){
+      let score = parseInt(localStorage.getItem("score")) || 0;
+      let stars = parseInt(localStorage.getItem("stars")) || 0;
+      let lastLetter = localStorage.getItem("lastLetter") || "A";
+      let brushSize = 3;
+      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      const langMap = { en:"en-US", es:"es-ES", ur:"ur-PK", tr:"tr-TR", fr:"fr-FR", de:"de-DE" };
+      const translations = {
+        en:["Alphabet Cards","Tracing Practice","Matching Game"],
+        es:["Tarjetas del Alfabeto","Práctica de Escritura","Juego de Parejas"],
+        ur:["حروف تہجی کارڈز","لکھنے کی مشق","میچنگ گیم"],
+        tr:["Alfabe Kartları","Yazma Alıştırması","Eşleştirme Oyunu"],
+        fr:["Cartes Alphabet","Exercice d'Écriture","Jeu d'Association"],
+        de:["Alphabetkarten","Schreibübung","Zuordnungsspiel"]
+      };
+
+      function updateDashboard(){
+        $("#dashboardScore").text(score);
+        $("#dashboardStars").text(stars);
+        $("#dashboardLetter").text(lastLetter);
+        $("#starDisplay").text("⭐".repeat(stars));
+      }
+
+      function saveProgress(){
+        localStorage.setItem("score", score);
+        localStorage.setItem("stars", stars);
+        localStorage.setItem("lastLetter", lastLetter);
+      }
+
+      updateDashboard();
+
+      // Alphabet Cards
+      alphabet.forEach(letter => {
+        $("#alphabetCards").append(`
+          <div class="card" data-letter="${letter}" onclick="selectLetter('${letter}')">
+            <div class="letter">${letter}</div>
+          </div>
+        `);
+      });
+
+      // Select Letter
+      window.selectLetter = function(letter){
+        $("#traceLetter").text(letter);
+        lastLetter = letter;
+        saveProgress();
+        speakLetter(letter);
+        updateDashboard();
+      }
+
+      function speakLetter(letter){
+        const speech = new SpeechSynthesisUtterance(letter);
+        const lang = $("#languageSelect").val();
+        speech.lang = langMap[lang] || "en-US";
+        speechSynthesis.speak(speech);
+      }
+
+      // Canvas
+      const canvas = document.getElementById("traceCanvas");
+      const ctx = canvas.getContext("2d");
+      let drawing = false;
+
+      function getPosition(e){
+        const rect = canvas.getBoundingClientRect();
+        if(e.touches && e.touches.length>0){
+          return { x:e.touches[0].clientX - rect.left, y:e.touches[0].clientY - rect.top };
+        }
+        return { x:e.clientX - rect.left, y:e.clientY - rect.top };
+      }
+
+      function startDraw(e){ drawing=true; }
+      function endDraw(){ drawing=false; ctx.beginPath(); }
+      function draw(e){
+        if(!drawing) return;
+        const pos = getPosition(e);
+        ctx.lineWidth = brushSize;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = $("#colorPicker").val();
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      }
+
+      canvas.addEventListener("mousedown", startDraw);
+      canvas.addEventListener("mouseup", endDraw);
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("touchstart", startDraw);
+      canvas.addEventListener("touchend", endDraw);
+      canvas.addEventListener("touchmove", draw);
+
+      window.clearCanvas = function(){ ctx.clearRect(0,0,canvas.width,canvas.height); }
+
+      // Brush
+      $(".brush-button").click(function(){
+        $(".brush-button").removeClass("selected");
+        $(this).addClass("selected");
+        brushSize = parseInt($(this).attr("data-size"));
+      });
+
+      // Matching Game
+      const letters = ["A","A","B","B","C","C"].sort(() => 0.5 - Math.random());
+      letters.forEach(letter => {
+        $("#gameBoard").append(`<div class="game-card" data-letter="${letter}">?</div>`);
+      });
+
+      let firstCard = null;
+      $(".game-card").click(function(){
+        if($(this).text() !== "?") return;
+        $(this).text($(this).data("letter"));
+        if(!firstCard){
+          firstCard = $(this);
+        } else {
+          if(firstCard.data("letter") === $(this).data("letter")){
+            score++;
+            stars++;
+            saveProgress();
+            updateDashboard();
+            firstCard = null;
+          } else {
+            let second = $(this);
+            setTimeout(()=>{
+              firstCard.text("?"); second.text("?");
+              firstCard = null;
+            },800);
+          }
+        }
+      });
+
+      // Language Change
+      $("#languageSelect").change(function(){
+        const lang = $(this).val();
+        $("#alphabetTitle").text(translations[lang][0]);
+        $("#traceTitle").text(translations[lang][1]);
+        $("#gameTitle").text(translations[lang][2]);
+      });
+
+      // Search
+      $("#searchBtn").click(function(){
+        const query = $("#headerSearch").val();
+        alert(query.trim() !== "" ? "You searched for: " + query : "Please enter a search query.");
+      });
+
+    });
+  </script>
+</body>
+</html>

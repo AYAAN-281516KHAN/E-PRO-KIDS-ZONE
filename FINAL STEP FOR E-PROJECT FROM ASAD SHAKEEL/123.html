@@ -1,0 +1,310 @@
+Enable desktop notifications for Gmail.
+   OK  No thanks
+
+You could lose access to your Gmail history
+Adding a recovery phone and email can help you sign in and keep your account secure
+Conversations
+18% of 15 GB used
+Terms · Privacy · Program Policies
+Last account activity: 2 minutes ago
+Details
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counting 1–50 Flip Cards</title>
+
+    <style>
+
+    body {
+        margin: 0;
+        font-family: 'Comic Sans MS', Arial;
+        background: linear-gradient(to right, #cce7ff, #e6f4ff);
+        text-align: center;
+    }
+
+    h1 {
+        margin: 20px;
+        font-size: 45px;
+        color: #2a6fdb;
+        animation: bounce 1.5s infinite alternate;
+    }
+
+    @keyframes bounce {
+        from { transform: translateY(0px); }
+        to { transform: translateY(10px); }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .card {
+        perspective: 1000px;
+        height: 160px;
+        animation: pop 0.5s ease-in-out;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0); }
+        to { transform: scale(1); }
+    }
+
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backface-visibility: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        font-weight: bold;
+    }
+
+    /* Front (Number) */
+    .card-front {
+        background: linear-gradient(135deg, #4da6ff, #80c1ff);
+        color: white;
+        font-size: 60px;
+        border: 4px solid white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        animation: numberBounce 1s infinite alternate;
+    }
+
+    @keyframes numberBounce {
+        from { transform: scale(1); }
+        to { transform: scale(1.08); }
+    }
+
+    /* Back (Objects) */
+    .card-back {
+        background: #e6f4ff;
+        transform: rotateY(180deg);
+        font-size: 20px;
+        padding: 10px;
+        overflow-y: auto;
+        color: #2a6fdb;
+    }
+</style>
+
+</head>
+
+<body>
+
+<h1>Learn Counting 1 – 50 👶</h1>
+
+<div class="container" id="cardContainer"></div>
+
+<script>
+
+    const container = document.getElementById("cardContainer");
+
+    // Number spellings from 1–50
+    const numberWords = [
+        "", "One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
+        "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty",
+        "Twenty One","Twenty Two","Twenty Three","Twenty Four","Twenty Five",
+        "Twenty Six","Twenty Seven","Twenty Eight","Twenty Nine","Thirty",
+        "Thirty One","Thirty Two","Thirty Three","Thirty Four","Thirty Five",
+        "Thirty Six","Thirty Seven","Thirty Eight","Thirty Nine","Forty",
+        "Forty One","Forty Two","Forty Three","Forty Four","Forty Five",
+        "Forty Six","Forty Seven","Forty Eight","Forty Nine","Fifty"
+    ];
+
+    const emojis = [
+        "🍎","🍌","🍓","🍇","🍉",
+        "🥕","🌽","🍅","🥦","🥔",
+        "🐶","🐱","🐰","🐼","🐵",
+        "🧸","🚗","⚽","🎈","🪁",
+        "🌟","🌈","🌸","🍭","🦋"
+    ];
+
+    function generateObjects(num, emoji) {
+        let objects = "";
+        let displayCount = num > 20 ? 20 : num;
+
+        for (let i = 0; i < displayCount; i++) {
+            objects += emoji + " ";
+        }
+
+        if (num > 20) {
+            objects += "<br> +" + (num - 20);
+        }
+
+        return objects;
+    }
+
+    for (let i = 1; i <= 50; i++) {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const cardInner = document.createElement("div");
+        cardInner.className = "card-inner";
+
+        const front = document.createElement("div");
+        front.className = "card-front";
+
+        // Add number + spelling
+        front.innerHTML = `
+            <div style="text-align:center;">
+                <div style="font-size:60px;">${i}</div>
+                <div style="font-size:18px; margin-top:5px;">${numberWords[i]}</div>
+            </div>
+        `;
+
+        const back = document.createElement("div");
+        back.className = "card-back";
+
+        const emoji = emojis[i % emojis.length];
+        back.innerHTML = generateObjects(i, emoji);
+
+        cardInner.appendChild(front);
+        cardInner.appendChild(back);
+        card.appendChild(cardInner);
+        container.appendChild(card);
+    }
+</script>
+<footer class="text-center text-white" style="background-color: #08bad1;">
+      <!-- Grid container -->
+      <div class="container-fluid">
+          <!-- Section: Links -->
+          <section class="mt-5">
+              <!-- Grid row-->
+              <div class="row text-center d-flex justify-content-center pt-5">
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/' style='color: #ff5c77;'>Home</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/arithmatic' style='color: #00b8d9;'>Arithmetic</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/prayersandrhymes' style='color: #ff5c77;'>Prayers
+                              and Nursery
+                              Rhymes</a>
+                      </h6>
+                  </div>
+                   <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/shop' style='color: #00b8d9;'>Shop</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/worksheets' style='color: #ff5c77;'>Worksheets</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a href="About Us.html" class="text-decoration-none" style="color: #00b8d9;">About Us</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a href="Privacy Policy.html" class="text-decoration-none" style="color: #ff5c77;">Privacy
+                              Policy</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+              </div>
+              <!-- Grid row-->
+          </section>
+          <!-- Section: Links -->
+
+          <hr class="my-5" style="border-color: #ff5c77;" />
+
+          <!-- Section: Text -->
+          <section class="mb-5">
+              <div class="row d-flex justify-content-center">
+                  <div class="col-lg-8">
+                      <p>
+                          Thank you for visiting Kids Zone, where learning and fun go hand in hand! Explore our
+                          engaging activities,
+                          from alphabet learning to arithmetic challenges and interactive worksheets. Join us in
+                          nurturing young
+                          minds and fostering a love for learning. Stay updated with our latest events and programs!
+                      </p>
+                  </div>
+              </div>
+          </section>
+          <!-- Section: Text -->
+
+          <!-- Section: Social -->
+          <!-- Section: Social -->
+          <!-- Section: Social -->
+          <section class="text-center mb-5">
+              <a href="https://www.facebook.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-facebook-f" style="color: #ff5c77; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.twitter.com/yourpage" class="text-primary me-4">
+                  <i class="fab fa-twitter" style="color: #00b8d9; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.google.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-google" style="color: #c62828; font-size: 2rem;"></i>
+                  <!-- Darkened the Google color -->
+              </a>
+              <a href="https://www.instagram.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-instagram" style="color: #ff5c77; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/yourpage" class="text-info me-4">
+                  <i class="fab fa-linkedin" style="color: #00b8d9; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.github.com/yourpage" class="text-dark me-4">
+                  <i class="fab fa-github" style="color: #24292e; font-size: 2rem;"></i>
+                  <!-- Darkened the GitHub color -->
+              </a>
+          </section>
+
+          <!-- Section: Social -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(255, 34, 0, 0.465);">
+          © 2024 Copyright:
+          <a class="text-white" href="https://KidsZone.com/">KidsZone.com</a>
+      </div>
+
+</footer>
+</body>
+</html>

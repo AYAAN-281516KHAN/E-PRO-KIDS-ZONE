@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KidsZone PRO - Blue Theme with Brushes</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Comic Sans MS, cursive;
+      margin: 0;
+      background: linear-gradient(to right, #cce0ff, #99ccff);
+      text-align: center;
+    }
+
+    header {
+      background: #3366ff;
+      color: white;
+      padding: 15px 20px;
+      font-size: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: auto;
+    }
+
+    .search-box {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    #searchBtn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #000;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    #searchBtn:hover {
+      background: #222;
+    }
+
+    .container {
+      background: #e6f0ff;
+      margin: 20px auto;
+      padding: 20px;
+      width: 95%;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 128, 0.3);
+    }
+
+    h2 {
+      color: #3366ff;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      background: #3366ff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0033cc;
+    }
+
+    .cards,
+    .game-board {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .card {
+      width: 100px;
+      padding: 10px;
+      background: #cce0ff;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 128, 0.3);
+      cursor: pointer;
+    }
+
+    .letter {
+      font-size: 30px;
+      font-weight: bold;
+      color: #0033cc;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    canvas {
+      border: 3px dashed #3366ff;
+      border-radius: 10px;
+      background: #e6f0ff;
+      margin-top: 10px;
+    }
+
+    .game-card {
+      width: 70px;
+      height: 70px;
+      background: #3366ff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .stars {
+      font-size: 22px;
+      color: gold;
+    }
+
+    .dashboard {
+      background: #cce0ff;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    select {
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .color-brush-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .brush-button {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 2px solid #0033cc;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      background: #99c2ff;
+    }
+
+    .brush-button.selected {
+      border: 3px solid #0033cc;
+      background: #3366ff;
+      color: white;
+    }
+
+    @media print {
+      button,
+      header {
+        display: none;
+      }
+      body {
+        background: white;
+      }
+    }
+  </style>
+</head>
+<body>
+
+     <nav class="navbar navbar-expand-lg bg-danger">
+    <div class="container-fluid">
+        <a class='navbar-brand' href='/'>
+            <img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/kidszone (1).png" alt="Kids Zone" width="80" height="80">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current='page' class='nav-link active' href='/'><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/home.png"
+                            alt="" id="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/alphabets'><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/abc.png" alt=""
+                            id="Alphabets">ABC's</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/numbers'><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/123.png" alt="" id="Numbers">123</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/arithmatic'><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/arithmethic.png" alt=""
+                            id="Numbers">Arithmatic</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/prayersandrhymes'><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/prayers and rhymes.png" alt=""
+                            id="Numbers">Prayers and Rhymes</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/shop'><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/shop.png" alt=""
+                            id="Numbers">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/worksheets'><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/worksheet.png" alt=""
+                            id="Numbers">Worksheets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About Us.html"><img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/about us.png" alt=""
+                            id="Numbers">About Us</a>
+                </li>
+            </ul>
+            <a class='nav-link' href='/loginsignup' id='login'><i class="fa-solid fa-users"></i>Sign Up/ Log
+                In</a>
+        </div>
+    </div>
+</nav>
+  <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/carageuall 1.jpg" class="d-block w-100 c-img" alt="Slide 1">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Learn Arithmatic</h1>
+          <p class="mt-5 fs-3 text-uppercase">🌟Explore the magic of numbers! Master ➕ and ➖ with fun math games at Kids
+            Zone!</p>
+
+          <a class='btn btn-warning' href='/arithmatic'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/carageuall 2.jpg" class="d-block w-100 c-img" alt="Slide 2">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Learn Alphabets</h1>
+          <p class="mt-5 fs-3 text-uppercase">🥳Explore letters with us! Learn A to Z through delighting alphabet games
+            at Kids Zone!</p>
+          <a class='btn btn-warning' href='/alphabets'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="/FINAL STEP FOR E-PROJECT FROM ASAD SHAKEEL/carageuall 3.png" class="d-block w-100 c-img" alt="Slide 3">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Tracing Activities</h1>
+
+          <p class="mt-5 fs-3 text-uppercase">📚Explore our engaging alphabet worksheets for fun learning at Kids Zone!
+          </p>
+          <a class='btn btn-warning' href='/worksheets'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="assests/portfolio-4.jpg" class="d-block w-100 c-img" alt="Slide 4">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Explore Prayers & Rhymes</h1>
+          <p class="mt-5 fs-3 text-uppercase">📺Join us for engaging prayers and delightful nursery rhymes at KidsZone!
+          </p>
+          <a class='btn btn-warning mb-5' href='/prayersandrhymes'>Learn Now</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container-fluid text-center  mb-3 justify-content-center py-5 ">
+    <br>
+    
+  <header>
+    <div class="header-title">Worksheet</div>
+    <div class="search-container">
+      <input type="text" class="search-box" id="headerSearch" placeholder="Search Here">
+      <button id="searchBtn">Go</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Choose Language</h2>
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="ur">اردو</option>
+      <option value="tr">Türkçe</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+    </select>
+
+    <h2 id="alphabetTitle">Alphabet Cards</h2>
+    <div class="cards" id="alphabetCards"></div>
+
+    <h2 id="traceTitle">Tracing Practice</h2>
+    <h1 id="traceLetter">A</h1>
+
+    <div class="color-brush-container">
+      🎨 Color: <input type="color" id="colorPicker" value="#3366ff">
+      🖌 Brush Size:
+      <div class="brush-button selected" data-size="3">S</div>
+      <div class="brush-button" data-size="6">M</div>
+      <div class="brush-button" data-size="10">L</div>
+      <div class="brush-button" data-size="15">XL</div>
+    </div>
+
+    <canvas id="traceCanvas" width="400" height="200"></canvas><br>
+    <button onclick="clearCanvas()">Clear</button>
+
+    <h2 id="gameTitle">Matching Game</h2>
+    <div class="game-board" id="gameBoard"></div>
+
+    <h2>🏆 Rewards</h2>
+    <div class="stars" id="starDisplay">⭐⭐⭐⭐⭐</div>
+
+    <h2>Parent Dashboard</h2>
+    <div class="dashboard">
+      Score: <span id="dashboardScore">0</span><br>
+      Stars Earned: <span id="dashboardStars">0</span><br>
+      Last Letter Practiced: <span id="dashboardLetter">A</span>
+    </div>
+
+    <h2>🖨️ Print Worksheet</h2>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      let score = parseInt(localStorage.getItem("score")) || 0;
+      let stars = parseInt(localStorage.getItem("stars")) || 0;
+      let lastLetter = localStorage.getItem("lastLetter") || "A";
+      let brushSize = 3;
+      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      const langMap = { en:"en-US", es:"es-ES", ur:"ur-PK", tr:"tr-TR", fr:"fr-FR", de:"de-DE" };
+      const translations = {
+        en:["Alphabet Cards","Tracing Practice","Matching Game"],
+        es:["Tarjetas del Alfabeto","Práctica de Escritura","Juego de Parejas"],
+        ur:["حروف تہجی کارڈز","لکھنے کی مشق","میچنگ گیم"],
+        tr:["Alfabe Kartları","Yazma Alıştırması","Eşleştirme Oyunu"],
+        fr:["Cartes Alphabet","Exercice d'Écriture","Jeu d'Association"],
+        de:["Alphabetkarten","Schreibübung","Zuordnungsspiel"]
+      };
+
+      function updateDashboard(){
+        $("#dashboardScore").text(score);
+        $("#dashboardStars").text(stars);
+        $("#dashboardLetter").text(lastLetter);
+        $("#starDisplay").text("⭐".repeat(stars));
+      }
+
+      function saveProgress(){
+        localStorage.setItem("score", score);
+        localStorage.setItem("stars", stars);
+        localStorage.setItem("lastLetter", lastLetter);
+      }
+
+      updateDashboard();
+
+      // Alphabet Cards
+      alphabet.forEach(letter => {
+        $("#alphabetCards").append(`
+          <div class="card" data-letter="${letter}" onclick="selectLetter('${letter}')">
+            <div class="letter">${letter}</div>
+          </div>
+        `);
+      });
+
+      // Select Letter
+      window.selectLetter = function(letter){
+        $("#traceLetter").text(letter);
+        lastLetter = letter;
+        saveProgress();
+        speakLetter(letter);
+        updateDashboard();
+      }
+
+      function speakLetter(letter){
+        const speech = new SpeechSynthesisUtterance(letter);
+        const lang = $("#languageSelect").val();
+        speech.lang = langMap[lang] || "en-US";
+        speechSynthesis.speak(speech);
+      }
+
+      // Canvas
+      const canvas = document.getElementById("traceCanvas");
+      const ctx = canvas.getContext("2d");
+      let drawing = false;
+
+      function getPosition(e){
+        const rect = canvas.getBoundingClientRect();
+        if(e.touches && e.touches.length>0){
+          return { x:e.touches[0].clientX - rect.left, y:e.touches[0].clientY - rect.top };
+        }
+        return { x:e.clientX - rect.left, y:e.clientY - rect.top };
+      }
+
+      function startDraw(e){ drawing=true; }
+      function endDraw(){ drawing=false; ctx.beginPath(); }
+      function draw(e){
+        if(!drawing) return;
+        const pos = getPosition(e);
+        ctx.lineWidth = brushSize;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = $("#colorPicker").val();
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      }
+
+      canvas.addEventListener("mousedown", startDraw);
+      canvas.addEventListener("mouseup", endDraw);
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("touchstart", startDraw);
+      canvas.addEventListener("touchend", endDraw);
+      canvas.addEventListener("touchmove", draw);
+
+      window.clearCanvas = function(){ ctx.clearRect(0,0,canvas.width,canvas.height); }
+
+      // Brush
+      $(".brush-button").click(function(){
+        $(".brush-button").removeClass("selected");
+        $(this).addClass("selected");
+        brushSize = parseInt($(this).attr("data-size"));
+      });
+
+      // Matching Game
+      const letters = ["A","A","B","B","C","C"].sort(() => 0.5 - Math.random());
+      letters.forEach(letter => {
+        $("#gameBoard").append(`<div class="game-card" data-letter="${letter}">?</div>`);
+      });
+
+      let firstCard = null;
+      $(".game-card").click(function(){
+        if($(this).text() !== "?") return;
+        $(this).text($(this).data("letter"));
+        if(!firstCard){
+          firstCard = $(this);
+        } else {
+          if(firstCard.data("letter") === $(this).data("letter")){
+            score++;
+            stars++;
+            saveProgress();
+            updateDashboard();
+            firstCard = null;
+          } else {
+            let second = $(this);
+            setTimeout(()=>{
+              firstCard.text("?"); second.text("?");
+              firstCard = null;
+            },800);
+          }
+        }
+      });
+
+      // Language Change
+      $("#languageSelect").change(function(){
+        const lang = $(this).val();
+        $("#alphabetTitle").text(translations[lang][0]);
+        $("#traceTitle").text(translations[lang][1]);
+        $("#gameTitle").text(translations[lang][2]);
+      });
+
+      // Search
+      $("#searchBtn").click(function(){
+        const query = $("#headerSearch").val();
+        alert(query.trim() !== "" ? "You searched for: " + query : "Please enter a search query.");
+      });
+
+    });
+  </script>
+</body>
+</html>

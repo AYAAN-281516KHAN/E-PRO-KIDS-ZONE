@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Kids Learning Website</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', Arial;
+            background: blue;
+        }
+
+
+          .navbar .navbar-nav .nav-link:hover {
+    background-color: #ff0303;
+    color: #001aff;
+  }
+
+  .navbar .navbar-nav .nav-link {
+    padding: 0.6em;
+    font-size: 1.2em;
+    transition: all 0.5s;
+  }
+
+  .navbar .navbar-brand {
+    padding: 0 0.6em;
+    font-size: 1.5em;
+  }
+
+  @media only screen and (min-width: 992px) {
+    .navbar {
+      padding: 0;
+    }
+
+    .navbar .navbar-nav .nav-link {
+      padding: 1em 0.7em;
+    }
+
+    .navbar .navbar-brand {
+      padding: 0 0.8em;
+    }
+
+    #login {
+      padding: 1em 0.7em;
+    }
+
+
+
+  }
+
+  #login {
+    color: #ff0381;
+
+  }
+
+  #login:hover {
+    color: #ffd500;
+    background-color: #ff0381;
+    padding: 0.6em;
+    font-size: 1.2em;
+    transition: all 0.5s;
+  }
+
+  .c-item {
+    height: 480px;
+  }
+
+  .c-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+  }
+  ::-webkit-scrollbar {
+    width: 0.625rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgb(173, 38, 38);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(228, 76, 76);
+  }
+  #home {
+  
+    height: 50px;
+    width: 50px;
+  }
+
+  #Alphabets {
+    height: 50px;
+    width: 50px;
+  }
+
+  #Numbers {
+    height: 50px;
+    width: 50px;
+  }
+
+
+  #section1 {
+    height: 300px;
+    width: 300px;
+    border: none;
+    border-radius: 5%;
+
+  }
+
+  footer a {
+    outline: none;
+    text-decoration-line: none;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    background-color: #9e0404;
+  }
+
+  .container .contents-wraper {
+    width: auto;
+    min-height: inherit;
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  .contents-wraper .header h1 {
+    position: relative;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .contents-wraper .header h1::before {
+    content: '';
+    width: 200px;
+    height: 2px;
+    background-color: #ff1414;
+    border-radius: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+  }
+
+
+  .contents-wraper .indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .contents-wraper .indicators .dot {
+    width: 15px;
+    height: 15px;
+    margin: 0px 3px;
+    border: 3px solid #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+  }
+
+  .contents-wraper .indicators .active {
+    background-color: #006994;
+  }
+
+  @keyframes next1 {
+    from {
+      left: 0%;
+    }
+
+    to {
+      left: -100%;
+    }
+  }
+
+  @keyframes next2 {
+    from {
+      left: 100%;
+    }
+
+    to {
+      left: 0%;
+    }
+  }
+
+  @keyframes prev1 {
+    from {
+      left: 0%;
+    }
+
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes prev2 {
+    from {
+      left: -100%;
+    }
+
+    to {
+      left: 0%;
+    }
+  }
+
+  @media(max-width: 550px) {
+    .container .contents-wraper {
+      width: 90%;
+    }
+
+    .contents-wraper .header h1 {
+      font-size: 32px;
+    }
+
+  }
+  .videos {
+    background-color: #FFFFFF;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    height: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .videos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .card-img-top {
+    height: auto;
+    flex-grow: 1;
+  }
+
+  .flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateX(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateX(180deg);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .carousel-caption .btn {
+    margin-top: auto;
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-caption p {
+      font-size: 5px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+  }
+
+        /* Navbar Styling */
+        .a-navbar {
+            font-weight: bold;
+        }
+
+        .a-navbar-nav .nav-link {
+            color: white !important;
+            margin: 0 8px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .a-navbar-nav .nav-link:hover {
+            color: yellow !important;
+            transform: scale(1.1);
+        }
+
+        .a-navbar img {
+            margin-right: 5px;
+        }
+
+        #login {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 35px;
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            color: white;
+        }
+
+        /* Team Cards */
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .team-card {
+            background: white;
+            width: 250px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+
+        .hysh{
+          color: red;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffd500;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer a {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            background-color: rgba(255, 34, 0, 0.5);
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+     <nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
+        <a class='navbar-brand' href='/'>
+            <img src="/kidszone (1).png" class="rounded-pill" alt="Kids Zone" width="80" height="80">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current='page' class='nav-link active' href='/index.html'><img src="/home.png" class="rounded-pill"
+                            alt="Home" id="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/A-B-C.HTML' class="rounded-pill"><img src="/abc.png" alt=""
+                            id="Alphabets">ABC's</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/123.html'><img src="/123.png"  alt="" id="Numbers">123</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/arthmatic.html'><img src="arithmethic.png" class="rounded-pill" alt=""
+                            id="Numbers">Arithmatic</a>
+                    </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/kid zone shop.html'><img src="/shop.png" class="rounded-pill" alt=""
+                            id="Numbers">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link' href='/worksheet.html'><img src="/worksheet.png" class="rounded-pill" alt="Work Sheet"
+                            id="Numbers">Worksheets</a>
+                </li>
+
+
+                                <li class="nav-item">
+                    <a class='nav-link' href='Game.html'><img src="/Games logo copy.png" class="rounded-pill" alt="Games"
+                            id="Numbers">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ABOUT US.HTML"><img src="/about us.png" class="rounded-pill" alt="About Us"
+                            id="Numbers">About Us</a>
+                </li>
+            </ul>
+            <a class='nav-link' href='/SIN UP.HTML' id='login'><i class="fa-solid fa-users"></i>Sign Up/ Log
+                In</a>
+        </div>
+    </div>
+</nav>
+  <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="carageuall 1.jpg" class="d-block w-100 c-img" alt="Slide 1">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Learn Arithmatic</h1>
+          <p class="mt-5 fs-3 text-uppercase">🌟Explore the magic of numbers! Master ➕ and ➖ with fun math games at Kids
+            Zone!</p>
+
+          <a class='btn btn-warning' href='/arithmatic'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="carageuall 2.jpg" class="d-block w-100 c-img" alt="Slide 2">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Learn Alphabets</h1>
+          <p class="mt-5 fs-3 text-uppercase">🥳Explore letters with us! Learn A to Z through delighting alphabet games
+            at Kids Zone!</p>
+          <a class='btn btn-warning' href='/alphabets'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="carageuall 3.png" class="d-block w-100 c-img" alt="Slide 3">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Tracing Activities</h1>
+
+          <p class="mt-5 fs-3 text-uppercase">📚Explore our engaging alphabet worksheets for fun learning at Kids Zone!
+          </p>
+          <a class='btn btn-warning' href='/worksheets'>Learn Now</a>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="assests/portfolio-4.jpg" class="d-block w-100 c-img" alt="Slide 4">
+        <div class="carousel-caption top-0 mt-4">
+          <h1 class="display-1 fw-bolder text-capitalize">Explore Prayers & Rhymes</h1>
+          <p class="mt-5 fs-3 text-uppercase">📺Join us for engaging prayers and delightful nursery rhymes at KidsZone!
+          </p>
+          <a class='btn btn-warning mb-5' href='/prayersandrhymes'>Learn Now</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container-fluid text-center  mb-3 justify-content-center py-5 ">
+    <br>
+
+
+
+<!-- ABOUT SECTION -->
+<div class="section">
+    <h2>What We Are Serving</h2>
+    <p>
+        Welcome to Kids Zone!  We make learning fun and exciting for children.
+        Here you can learn ABCs, numbers, colors, animals, tables,
+        addition, subtraction and much more!
+    </p>
+    <p>
+        Our goal is to help kids learn while playing.
+        Learning should be colorful, happy and full of fun! 
+    </p>
+</div>
+
+<!-- TEAM SECTION -->
+<div class="section">
+    <h2> Meet Our Team</h2>
+
+    <div class="team-container">
+
+        <div class="team-card">
+            <img src="/My pic.png" alt="My Pic">
+            <h4>Mr. Asad Shakeel</h4>
+            <p>Founder & Developer <br>
+             <p class="hysh">HI! I'm asad shakeel in Grade-V I am Beaconhouse School  Student Student and in the CPISM Semester learning front-end development in the Aptech Learning Intitute</p>
+        </div>
+
+        <div class="team-card">
+            <img src="https://via.placeholder.com/100" alt="">
+            <h4>Mr. Ayaan Khan</h4>
+            <p>Founder & Developer <br>
+            HI! I'm Ayaan Khan and in the CPISM Semester learning front-end development in the Aptech Learning Intitute</p>
+        </div>
+
+        <div class="team-card">
+            <img src="https://via.placeholder.com/100" alt="">
+            <h4>Mr. Maaz Shahid</h4>
+            <p>Material Researcher <br>
+                 HI! I'm Maaz Khan and in the CPISM Semester learning front-end development in the Aptech Learning Intitute
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- MISSION -->
+<div class="section">
+    <h2> Our Mission</h2>
+    <p>
+        To create a safe, happy and smart learning place for every child.
+        We want every kid to smile while learning something new every day! 
+    </p>
+</div>
+
+<div class="section">
+    <h2> Our Location – Aptech North Karachi Branch</h2>
+    <p>Visit us at Aptech Learning North Karachi Branch and start your learning journey with us! </p>
+
+    <div class="container mt-4">
+        <div class="ratio ratio-16x9">
+            <iframe 
+                src="https://www.google.com/maps?q=Aptech+North+Karachi+Branch&output=embed"
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+
+    <footer class="text-center text-white bg-info">
+      <!-- Grid container -->
+      <div class="container-fluid">
+          <!-- Section: Links -->
+          <section class="mt-5">
+              <!-- Grid row-->
+              <div class="row text-center d-flex justify-content-center pt-5">
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='index.html' style='color: #ff0000;'>Home</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/arthmatic.html' style='color: #ff0000;'>Arithmetic</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/p a r .html' style='color: rgb(255, 0, 0);'>Prayers
+                              and Nursery
+                              Rhymes</a>
+                      </h6>
+                  </div>
+                   <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/kid zone shop.html' style='color: #ff0000;'>Shop</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a class='text-decoration-none' href='/worksheet.html' style='color: #ff0000;'>Worksheets</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a href="/ABOUT US.HTML" class="text-decoration-none" style="color: #ff0000;">About Us</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <a href="Privacy Policy.html" class="text-decoration-none" style="color: #ff0000;">Privacy
+                              Policy</a>
+                      </h6>
+                  </div>
+                  <!-- Grid column -->
+              </div>
+              <!-- Grid row-->
+          </section>
+          <!-- Section: Links -->
+
+          <hr class="my-5" style="border-color: #ff5c77;" />
+
+          <!-- Section: Text -->
+          <section class="mb-5">
+              <div class="row d-flex justify-content-center">
+                  <div class="col-lg-8">
+                      <p>
+                          Thank you for visiting Kids Zone, where learning and fun go hand in hand! Explore our
+                          engaging activities,
+                          from alphabet learning to arithmetic challenges and interactive worksheets. Join us in
+                          nurturing young
+                          minds and fostering a love for learning. Stay updated with our latest events and programs!
+                      </p>
+                  </div>
+              </div>
+          </section>
+          <!-- Section: Text -->
+
+          <!-- Section: Social -->
+          <!-- Section: Social -->
+          <!-- Section: Social -->
+          <section class="text-center mb-5">
+              <a href="https://www.facebook.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-facebook-f" style="color: #ff5c77; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.twitter.com/yourpage" class="text-primary me-4">
+                  <i class="fab fa-twitter" style="color: #00b8d9; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.google.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-google" style="color: #c62828; font-size: 2rem;"></i>
+                  <!-- Darkened the Google color -->
+              </a>
+              <a href="https://www.instagram.com/yourpage" class="text-danger me-4">
+                  <i class="fab fa-instagram" style="color: #ff5c77; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.linkedin.com/yourpage" class="text-info me-4">
+                  <i class="fab fa-linkedin" style="color: #00b8d9; font-size: 2rem;"></i>
+              </a>
+              <a href="https://www.github.com/yourpage" class="text-dark me-4">
+                  <i class="fab fa-github" style="color: #24292e; font-size: 2rem;"></i>
+                  <!-- Darkened the GitHub color -->
+              </a>
+          </section>
+
+          <!-- Section: Social -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(255, 34, 0, 0.465);">
+          © 2024 Copyright:
+          <a class="text-white" href="https://KidsZone.com/">KidsZone.com</a>
+      </div>
+      <!-- Copyright -->
+  </footer>
+
+  <!-- Footer -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="videoModalLabel">YouTube Video</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <iframe id="modalVideo" width="100%" height="315" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+          </div>
+      </div>
+  </div
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
